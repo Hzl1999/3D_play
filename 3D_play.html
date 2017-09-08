@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>css图片切换效果</title>
+<style>
+@importurl("http://www.w3cplus.com/demo/css3/base.css");
+img.bg{min-height:100%; min-width:1024px; width:100%; height:100%; height: auto !important; position:fixed; top:0; left:0; z-index:1;}
+
+
+/*---------------------设置动画-------------------------*/
+
+
+/*--------从左至右----------*/
+@-webkit-keyframes fromleft{
+0%{left:-500px;}
+100%{left:0;}
+}
+
+@keyframes fromleft{
+0%{left:-500px;}
+100%{left:0;}
+}
+
+
+
+
+/*--------底部到顶部----------*/
+@-webkit-keyframes frombottom{
+0%{top:350px;}
+100%{top:0;}
+}
+
+@keyframes frombottom{
+0%{top:350px;}
+100%{top:0;}
+}
+
+
+
+/*--------由小到大----------*/
+@-webkit-keyframes zoomin{
+0%{transform:scale(0.1)}
+100%{transform:none}
+}
+
+@keyframes zoomin{
+0%{transform:scale(0.1)}
+100%{transform:none}
+}
+
+
+/*--------由大到小----------*/
+@-webkit-keyframes daxiao{
+0%{transform:scale(2)}
+100%{transform:none}
+}
+
+@keyframes daxiao{
+0%{transform:scale(2)}
+100%{transform:none}
+}
+
+
+/*--------旋转入场----------*/
+@-webkit-keyframes xuanzhuan{
+0%{transform:rotate(-360deg) scale(0.1)}
+100%{transform:none}
+}
+
+
+@keyframes xuanzhuan{
+0%{transform:rotate(-360deg) scale(0.1)}
+100%{transform:none}
+}
+
+
+
+
+/*---------------------页面排版-------------------------*/
+
+.smallpic{width:99%; position:absolute; bottom:100px; text-align:center;}
+.smallpic ul li{width:180px; height:150px; display:inline-block;}
+.smallpic ul li a{display:inline-block; width:180px; height:80px; cursor:pointer; box-shadow:1px 1px 2px (0,0,0,0.6); position:absolute;}
+
+
+/*-----------li a背景颜色----------*/
+.smallpic ul li:nth-of-type(1) a{background:red;}
+.smallpic ul li:nth-of-type(2) a{background:green;}
+.smallpic ul li:nth-of-type(3) a{background:yellow;}
+.smallpic ul li:nth-of-type(4) a{background:black;}
+.smallpic ul li:nth-of-type(5) a{background:orange;}
+
+
+/*-----------缩略图----------*/
+a:after{content:""; display:block; height:120px; width:120px; border:5px solid #fff; border-radius:50%;
+position:absolute; left:50%; margin-left:-60px; z-index:9999; top:-80px;}
+
+li:nth-of-type(1) a:after{background:url(img/1.jpg) no-repeat center;}
+li:nth-of-type(2) a:after{background:url(img/2.jpg) no-repeat center;}
+li:nth-of-type(3) a:after{background:url(img/3.jpg) no-repeat center;}
+li:nth-of-type(4) a:after{background:url(img/4.jpg) no-repeat center;}
+li:nth-of-type(5) a:after{background:url(img/5.jpg) no-repeat center;}
+
+
+
+
+
+/*-----------点击缩略图切换----------*/
+
+.fromleft:target{animation-name:fromleft; animation-duration:1s; nimation-iteration-count:1;z-index:200;}
+.frombottom:target{animation-name:frombottom; animation-duration:1s; nimation-iteration-count:1; z-index: 100;}
+.zoomin:target{animation-name:zoomin; animation-duration:1s; nimation-iteration-count:1; z-index: 100;}
+.daxiao:target{animation-name:daxiao; animation-duration:1s; nimation-iteration-count:1; z-index: 100;}
+.xuanzhuan:target{animation-name:xuanzhuan; animation-duration:1s; nimation-iteration-count:1; z-index: 100;}
+
+
+
+</style>
+</head>
+
+<body>
+
+
+
+    <div class="smallpic">
+         <ul>
+             <li><a href="#bg1">111</a></li>
+             <li><a href="#bg2">222</a></li>
+             <li><a href="#bg3">333</a></li>
+             <li><a href="#bg4">444</a></li>
+             <li><a href="#bg5">555</a></li>
+         </ul>
+    </div>
+    
+    
+    <img src="img/1.jpg" class="bg fromleft" id="bg1"/>
+    <img src="img/2.jpg" class="bg frombottom" id="bg2"/>
+    <img src="img/3.jpg" class="bg zoomin" id="bg3"/>
+    <img src="img/4.jpg" class="bg daxiao" id="bg4"/>
+    <img src="img/5.jpg" class="bg xuanzhuan" id="bg5"/>
+
+
+</body>
+</html>
